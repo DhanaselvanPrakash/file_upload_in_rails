@@ -1,0 +1,29 @@
+<secction class="p-5">
+  <h2 class="text-xl font-semibold">All Users Record</h2>
+  <p class="text-emerald-500 my-3"><%= notice %></p>
+
+  <div>
+    <table class="border">
+      <tr>
+        <th class="px-5 py-2 border">First Name</th>
+        <th class="px-5 py-2 border">Last Name</th>
+        <th class="px-5 py-2 border">Gender</th>
+        <th class="px-5 py-2 border">Role</th>
+        <th class="px-5 py-2 border">Email Id</th>
+        <th class="px-5 py-2 border">Contact</th>
+        <th class="px-5 py-2 border">Option</th>
+      </tr>
+      <% @users.each do |user| %>
+        <tr>
+          <td class="px-3 py-2"><%= user.first_name %></td>
+          <td class="px-3 py-2"><%= user.last_name %></td>
+          <td class="px-3 py-2"><%= user.gender %></td>
+          <td class="px-3 py-2"><%= user.role %></td>
+          <td class="px-3 py-2"><%= user.email_id %></td>
+          <td class="px-3 py-2"><%= user.contact %></td>
+          <td class="px-3 py-2"><%= link_to "Show this Record", user_path(user.id) %></td>
+        </tr>
+    <% end %>
+    </table>
+  </div>
+</secction>

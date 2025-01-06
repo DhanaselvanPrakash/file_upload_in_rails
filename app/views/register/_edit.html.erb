@@ -1,0 +1,55 @@
+<%= form_with(model: @user, url: edit_path, remote:true) do |f| %>
+  <p class="text-red-500 my-3"><%= notice %></p>
+  <% if @user.profile.attached? %>
+    <p><strong>Uploaded File:</strong></p>
+    <%= link_to @user.profile.filename.to_s, url_for(@user.profile), target: "_blank" %>
+  <% end %>
+  <div class="my-1">
+    <%= f.label :first_name, class: "block" %>
+    <%= f.text_field :first_name, class: "border px-2 py-1 my-2 rounded" %>
+  </div>
+  <div class="my-1">
+    <%= f.label :last_name, class: "block" %>
+    <%= f.text_field :last_name, class: "border px-2 py-1 my-2 rounded" %>
+  </div>
+  <div class="my-1">
+    <%= f.label :email_id, class: "block" %>
+    <%= f.email_field :email_id, class: "border px-2 py-1 my-2 rounded" %>
+  </div>
+  <div class="my-1">
+    <%= f.label :contact, class: "block" %>
+    <%= f.text_field :contact, class: "border px-2 py-1 my-2 rounded" %>
+  </div>
+  <div class="my-1">
+    <%= f.label :gender, class: "block" %>
+     <div class="flex gap-4 my-2">
+      <div>
+        <%= f.radio_button :gender, "Male" %>
+        <%= f.label :gender_male, "Male" %>
+      </div>
+      <div>
+        <%= f.radio_button :gender, "Male" %>
+        <%= f.label :gender_female, "Female" %>
+      </div>
+      <div>
+        <%= f.radio_button :gender, "Others" %>
+        <%= f.label :gender_other, "Others" %>
+      </div>
+     </div>
+  </div>
+  <div class="my-1">
+    <%= f.label :role, class: "block mb-2" %>
+    <%= f.select :role, ["Fullstack", "Data engineer", "QA"] %>
+  </div>
+  <div class="my-1">
+    <%= f.label :profile, class: "block mb-2" %>
+    <%= f.file_field :profile, class: "px-2 py-1 rounded" %>
+  </div>
+  <div class="my-2 flex gap-2">
+    <%= f.check_box :terms, class: "block" %>
+    <%= f.label :terms, "I accept the terms and condition" %>
+  </div>
+  <div class="my-2">
+    <!-- <%= f.submit "Edit", class: "px-2 py-1 bg-emerald-400 rounded hover:bg-emerald-700" %> -->
+  </div>
+<% end %>
